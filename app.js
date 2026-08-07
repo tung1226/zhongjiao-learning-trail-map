@@ -250,12 +250,26 @@
     });
   }
 
+  // 地圖可左右捲動，但垂直滾輪應控制整個網頁。
+  // 這可避免游標停在地圖上時，頁面看起來像被「卡住」。
+  function initPageScrollPassThrough() {
+    mapViewport.addEventListener('wheel', (event) => {
+      if (event.ctrlKey || event.shiftKey) return;
+      const mostlyVertical = Math.abs(event.deltaY) >= Math.abs(event.deltaX);
+      if (!mostlyVertical || event.deltaY === 0) return;
+
+      event.preventDefault();
+      window.scrollBy({ top: event.deltaY, left: 0, behavior: 'auto' });
+    }, { passive: false });
+  }
+
   renderTrails();
   initIntro();
   initDialog();
   initPanel();
   initSearch();
   initZoom();
+  initPageScrollPassThrough();
 
   // If autoplay is blocked, display an explicit start control.
   const attempt = video.play();

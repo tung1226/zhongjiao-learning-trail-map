@@ -245,9 +245,13 @@ code {
 .zoom-label { min-width: 48px; text-align: center; font-weight: 900; color: var(--ocean); font-variant-numeric: tabular-nums; }
 .map-viewport {
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: visible;
   background: #dfece3;
-  overscroll-behavior: contain;
+  /* 讓滑鼠滾輪／觸控上下滑動交給整個頁面，不再被地圖區卡住。 */
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-x pan-y pinch-zoom;
   scrollbar-color: rgba(24,90,105,.35) transparent;
 }
 .map-canvas {
@@ -404,7 +408,7 @@ code {
   }
   .trail-panel.is-open { transform: translateX(0); }
   .panel-close { display: inline-grid; place-items: center; }
-  .map-viewport { max-height: 73vh; }
+  .map-viewport { max-height: none; }
   .map-canvas { width: 125%; }
 }
 
