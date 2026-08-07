@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#185a69" />
+  <meta name="description" content="中角國小學習步道地圖：從校園地圖探索 30 個學習步道。" />
+  <title>中角國小學習步道地圖</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <noscript>
+    <div class="noscript">此網頁需要啟用 JavaScript 才能使用互動式學習步道地圖。</div>
+  </noscript>
+
+  <section id="intro" class="intro" aria-label="首頁動畫">
+    <video
+      id="introVideo"
+      class="intro__video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      poster="assets/intro-poster.jpg"
+    >
+      <source src="assets/intro.mp4" type="video/mp4" />
+      您的瀏覽器不支援影片播放。
+    </video>
+    <div class="intro__shade" aria-hidden="true"></div>
+
+    <div class="intro__controls">
+      <button id="soundBtn" class="glass-btn" type="button" aria-pressed="false">🔇 開啟聲音</button>
+      <button id="skipBtn" class="glass-btn" type="button">跳過動畫 →</button>
+    </div>
+
+    <div id="playFallback" class="play-fallback" hidden>
+      <h1>中角國小學習步道地圖</h1>
+      <p>點擊下方按鈕播放首頁動畫</p>
+      <button id="playBtn" class="primary-btn" type="button">▶ 播放動畫</button>
+      <button id="enterDirectBtn" class="text-btn" type="button">直接進入學習步道地圖</button>
+    </div>
+  </section>
+
+  <main id="mainSite" class="site" hidden>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true">🌊</div>
+          <div>
+            <p class="eyebrow">ZHONGJIAO ELEMENTARY SCHOOL</p>
+            <h1>中角國小學習步道地圖</h1>
+            <p class="tagline">走進校園・探索學習・發現中角</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="replayBtn" class="secondary-btn" type="button">▶ 再看一次動畫</button>
+          <button id="listToggleBtn" class="secondary-btn" type="button" aria-expanded="false" aria-controls="trailPanel">☰ 學道總覽</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero-copy" aria-labelledby="mapHeading">
+      <div>
+        <p class="section-kicker">LEARNING TRAIL MAP</p>
+        <h2 id="mapHeading">點選地圖上的號碼，開始探索 30 個學習步道</h2>
+        <p>目前 Google Sites 連結尚未設定；之後只要在 <code>trail-data.js</code> 填入網址即可啟用「進入學習」按鈕。</p>
+      </div>
+      <div class="search-box">
+        <label for="trailSearch">快速查找學道</label>
+        <div class="search-box__row">
+          <input id="trailSearch" type="search" inputmode="search" placeholder="輸入名稱或序號，例如：衝浪、29" autocomplete="off" />
+          <button id="clearSearchBtn" type="button" class="icon-btn" aria-label="清除搜尋" title="清除搜尋">×</button>
+        </div>
+        <div id="searchHint" class="search-hint" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="map-card">
+        <div class="map-toolbar" aria-label="地圖控制">
+          <div class="map-toolbar__left">
+            <span class="map-tip">💡 點一下號碼查看學道名稱</span>
+          </div>
+          <div class="map-toolbar__right">
+            <button id="zoomOutBtn" class="icon-btn" type="button" aria-label="縮小地圖">−</button>
+            <span id="zoomLabel" class="zoom-label">100%</span>
+            <button id="zoomInBtn" class="icon-btn" type="button" aria-label="放大地圖">＋</button>
+            <button id="zoomResetBtn" class="small-btn" type="button">重設</button>
+          </div>
+        </div>
+
+        <div id="mapViewport" class="map-viewport" tabindex="0" aria-label="中角國小校園平面圖，可左右上下捲動">
+          <div id="mapCanvas" class="map-canvas">
+            <img src="assets/campus-map.jpg" alt="中角國小校園平面圖" draggable="false" />
+            <div id="pinLayer" class="pin-layer" aria-label="學習步道位置"></div>
+          </div>
+        </div>
+      </div>
+
+      <aside id="trailPanel" class="trail-panel" aria-label="學道總覽">
+        <div class="trail-panel__header">
+          <div>
+            <p class="section-kicker">ALL TRAILS</p>
+            <h2>學道總覽</h2>
+          </div>
+          <button id="closePanelBtn" class="icon-btn panel-close" type="button" aria-label="關閉學道總覽">×</button>
+        </div>
+        <div id="trailList" class="trail-list"></div>
+      </aside>
+    </section>
+
+    <footer class="site-footer">
+      <p>中角國小學習步道地圖</p>
+      <p class="site-footer__sub">未來可逐項連結至 Google Sites 學習內容頁面。</p>
+    </footer>
+  </main>
+
+  <div id="trailDialog" class="dialog" hidden>
+    <div class="dialog__backdrop" data-close-dialog></div>
+    <article class="dialog__card" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+      <button id="dialogCloseBtn" class="dialog__close" type="button" aria-label="關閉">×</button>
+      <div class="dialog__number" id="dialogNumber">01</div>
+      <p class="dialog__eyebrow">中角國小學習步道</p>
+      <h2 id="dialogTitle">學道名稱</h2>
+      <p id="dialogDescription" class="dialog__description"></p>
+      <div id="dialogStatus" class="status-pill">🚧 學習內容建置中</div>
+      <a id="dialogLink" class="primary-btn dialog__link" href="#" target="_blank" rel="noopener" hidden>進入學習 →</a>
+      <p class="dialog__note">完成 Google Sites 後，只要把網址填入 <code>trail-data.js</code>，這裡就會自動變成可點擊連結。</p>
+    </article>
+  </div>
+
+  <script src="trail-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
