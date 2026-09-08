@@ -1,242 +1,39 @@
+/**
+ * 中角國小學習步道資料
+ * ------------------------------------------------------------
+ * 1) 未來 Google Sites 建好後，把 url: "" 改成實際網址即可。
+ * 2) x / y 是地圖上的百分比座標（0~100）。
+ * 3) 若要微調位置，可使用 position-editor.html 拖曳後複製座標。
+ */
 window.TRAILS = [
-  {
-    "id": 1,
-    "title": "生態小志工",
-    "x": 64,
-    "y": 54,
-    "url": "https://sites.google.com/view/zhongjiao/%E9%A6%96%E9%A0%81",
-    "description": "從校園生態觀察與服務中，培養關懷環境與行動實踐。"
-  },
-  {
-    "id": 2,
-    "title": "太鼓",
-    "x": 27,
-    "y": 31,
-    "url": "https://sites.google.com/view/zhongjiao2/%E9%A6%96%E9%A0%81",
-    "description": "透過節奏、團隊與表演，感受中角太鼓的力量。"
-  },
-  {
-    "id": 3,
-    "title": "直笛",
-    "x": 25,
-    "y": 38,
-    "url": "https://sites.google.com/view/zhongjiao3/%E9%A6%96%E9%A0%81",
-    "description": "在吹奏與合奏中培養音樂素養、專注力與團隊默契。"
-  },
-  {
-    "id": 4,
-    "title": "海廢創作",
-    "x": 54,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao4/%E9%A6%96%E9%A0%81",
-    "description": "以海洋廢棄物轉化創意作品，實踐環境教育與藝術創作。"
-  },
-  {
-    "id": 5,
-    "title": "文章魔法師",
-    "x": 41,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao5/%E9%A6%96%E9%A0%81",
-    "description": "透過閱讀與寫作策略，讓文字成為表達想法的魔法。"
-  },
-  {
-    "id": 6,
-    "title": "魔數學堂",
-    "x": 35,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao6/%E9%A6%96%E9%A0%81",
-    "description": "從生活情境探索數學概念，發現數學的趣味與思考力。"
-  },
-  {
-    "id": 7,
-    "title": "閱讀(KCCV)",
-    "x": 30,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao7/%E9%A6%96%E9%A0%81",
-    "description": "以KCCV架構深化閱讀、理解、合作與價值思辨。"
-  },
-  {
-    "id": 8,
-    "title": "食農",
-    "x": 24,
-    "y": 76,
-    "url": "https://sites.google.com/view/zhongjiao8/%E9%A6%96%E9%A0%81",
-    "description": "從土地到餐桌，認識在地農作、飲食與永續生活。"
-  },
-  {
-    "id": 9,
-    "title": "游泳",
-    "x": 78,
-    "y": 59,
-    "url": "https://sites.google.com/view/zhongjiao9/%E9%A6%96%E9%A0%81",
-    "description": "培養水域安全、游泳技能與親水能力。"
-  },
-  {
-    "id": 10,
-    "title": "浪金獎勵(KCCV)",
-    "x": 45,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao10/%E9%A6%96%E9%A0%81",
-    "description": "透過正向獎勵與自主實踐，累積每一次成長。"
-  },
-  {
-    "id": 11,
-    "title": "衝浪",
-    "x": 88,
-    "y": 57,
-    "url": "https://sites.google.com/view/zhongjiao11/%E9%A6%96%E9%A0%81",
-    "description": "結合中角灣在地特色，學習衝浪技能與海洋素養。"
-  },
-  {
-    "id": 12,
-    "title": "中角報報",
-    "x": 40,
-    "y": 45,
-    "url": "https://sites.google.com/view/zhongjiao12/%E9%A6%96%E9%A0%81",
-    "description": "以校園新聞與採訪記錄中角故事，培養媒體表達能力。"
-  },
-  {
-    "id": 13,
-    "title": "文史課程",
-    "x": 29,
-    "y": 34,
-    "url": "https://sites.google.com/view/zhongjiao13/%E9%A6%96%E9%A0%81",
-    "description": "走讀金山與中角在地文史，理解家鄉的故事與文化。"
-  },
-  {
-    "id": 14,
-    "title": "排球",
-    "x": 75,
-    "y": 59,
-    "url": "https://sites.google.com/view/zhongjiao14/%E9%A6%96%E9%A0%81",
-    "description": "從排球基本動作到團隊合作，培養運動習慣與競技精神。"
-  },
-  {
-    "id": 15,
-    "title": "視力保健(KCCV)",
-    "x": 36,
-    "y": 44,
-    "url": "https://sites.google.com/view/zhongjiao15/%E9%A6%96%E9%A0%81",
-    "description": "建立良好用眼習慣，學習守護自己的視力健康。"
-  },
-  {
-    "id": 16,
-    "title": "平板攝影",
-    "x": 48,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao16/%E9%A6%96%E9%A0%81",
-    "description": "運用平板進行攝影、觀察、構圖與數位創作。"
-  },
-  {
-    "id": 17,
-    "title": "SH150",
-    "x": 41,
-    "y": 22,
-    "url": "https://sites.google.com/view/zhongjiao17/%E9%A6%96%E9%A0%81",
-    "description": "落實每日身體活動，養成規律運動與健康生活習慣。"
-  },
-  {
-    "id": 18,
-    "title": "衝浪滑板",
-    "x": 86,
-    "y": 70,
-    "url": "https://sites.google.com/view/zhongjiao18/%E9%A6%96%E9%A0%81",
-    "description": "從陸上模擬到平衡控制，體驗衝浪滑板的速度與技巧。"
-  },
-  {
-    "id": 19,
-    "title": "家庭教育閱讀(KCCV)",
-    "x": 34,
-    "y": 50,
-    "url": "https://sites.google.com/view/zhongjiao19/%E9%A6%96%E9%A0%81",
-    "description": "透過家庭共讀與議題討論，建立溫暖連結與價值思考。"
-  },
-  {
-    "id": 20,
-    "title": "沙灘越野(KCCV)",
-    "x": 78,
-    "y": 73,
-    "url": "https://sites.google.com/view/zhongjiao20/%E9%A6%96%E9%A0%81",
-    "description": "結合沙灘環境與體能挑戰，培養毅力、合作與戶外能力。"
-  },
-  {
-    "id": 21,
-    "title": "種稻",
-    "x": 26,
-    "y": 82,
-    "url": "https://sites.google.com/view/zhongjiao21/%E9%A6%96%E9%A0%81",
-    "description": "親手參與稻作歷程，體驗農事、感恩土地與珍惜食物。"
-  },
-  {
-    "id": 22,
-    "title": "手工肥皂",
-    "x": 20,
-    "y": 80,
-    "url": "https://sites.google.com/view/zhongjiao22/%E9%A6%96%E9%A0%81",
-    "description": "從材料與製作過程認識生活科學，實踐環保與手作。"
-  },
-  {
-    "id": 23,
-    "title": "核電館與防災",
-    "x": 91,
-    "y": 64,
-    "url": "https://sites.google.com/view/zhongjiao23/%E9%A6%96%E9%A0%81",
-    "description": "結合能源知識與防災教育，建立安全與應變素養。"
-  },
-  {
-    "id": 24,
-    "title": "蚯蚓",
-    "x": 63,
-    "y": 58,
-    "url": "https://sites.google.com/view/zhongjiao24/%E9%A6%96%E9%A0%81",
-    "description": "觀察蚯蚓與土壤生態，理解分解者與自然循環。"
-  },
-  {
-    "id": 25,
-    "title": "雙語(小英檢)",
-    "x": 46,
-    "y": 43,
-    "url": "https://sites.google.com/view/zhongjiao25/%E9%A6%96%E9%A0%81",
-    "description": "透過雙語學習與小英檢挑戰，累積英語溝通自信。"
-  },
-  {
-    "id": 26,
-    "title": "能源管理看板",
-    "x": 70,
-    "y": 53,
-    "url": "https://sites.google.com/view/zhongjiao26/%E9%A6%96%E9%A0%81",
-    "description": "從校園能源數據認識節能行動，實踐永續生活。"
-  },
-  {
-    "id": 27,
-    "title": "幼兒園中角水世界",
-    "x": 22,
-    "y": 40,
-    "url": "https://sites.google.com/view/zhongjiao27/%E9%A6%96%E9%A0%81",
-    "description": "從幼兒視角探索水與世界，在遊戲中培養好奇與感受力。"
-  },
-  {
-    "id": 28,
-    "title": "SUP",
-    "x": 91,
-    "y": 72,
-    "url": "https://sites.google.com/view/zhongjiao28/%E9%A6%96%E9%A0%81",
-    "description": "學習立槳技巧、水域安全與團隊合作，親近中角海洋。"
-  },
-  {
-    "id": 29,
-    "title": "3D創客衝浪板",
-    "x": 54,
-    "y": 54,
-    "url": "https://sites.google.com/view/zhongjiao29/%E9%A6%96%E9%A0%81",
-    "description": "結合3D設計、創客思維與衝浪文化，打造獨特創作。"
-  },
-  {
-    "id": 30,
-    "title": "班級經營",
-    "x": 40,
-    "y": 51,
-    "url": "https://sites.google.com/view/zhongjiao30/%E9%A6%96%E9%A0%81",
-    "description": "透過班級共同生活與合作學習，建立責任、自主與歸屬感。"
-  }
+  { id: 1,  name: "生態小志工",          x: 46.19, y: 11.84, url: "", description: "從校園生態觀察出發，培養主動參與、照護環境與行動實踐的學習經驗。" },
+  { id: 2,  name: "太鼓",                x: 97.22, y: 57.20, url: "", description: "透過節奏、團隊合作與舞台展演，展現中角孩子的活力與自信。" },
+  { id: 3,  name: "直笛",                x: 20.36, y: 17.70, url: "", description: "在音樂學習中培養節奏感、合奏能力與藝術表達。" },
+  { id: 4,  name: "海廢創作",            x: 10.50, y: 24.76, url: "", description: "將海洋環境議題轉化為創作素材，從觀察、思考到再創造。" },
+  { id: 5,  name: "文章魔法師",          x: 38.23, y: 49.39, url: "", description: "從閱讀、理解到寫作表達，讓文字成為孩子說故事與整理想法的工具。" },
+  { id: 6,  name: "魔數學堂",            x: 44.19, y: 49.46, url: "", description: "透過生活情境與探究活動，培養數學思考、解題與表達能力。" },
+  { id: 7,  name: "閱讀(KCCV)",          x: 16.94, y: 41.25, url: "", description: "以 KCCV 架構連結閱讀、思考、合作與價值實踐。" },
+  { id: 8,  name: "食農",                x: 59.42, y: 71.94, url: "", description: "從土地、作物到餐桌，認識在地農業並建立珍惜食物與環境的態度。" },
+  { id: 9,  name: "游泳",                x: 95.56, y: 82.10, url: "", description: "發展水域安全知能與游泳基本能力，建立自信且安全的親水經驗。" },
+  { id: 10, name: "浪金獎勵(KCCV)",     x: 29.83, y: 77.39, url: "", description: "透過正向回饋與 KCCV 學習精神，鼓勵孩子看見自己的成長與努力。" },
+  { id: 11, name: "衝浪",                x: 91.16, y: 57.00, url: "", description: "中角特色海洋教育核心課程，學習海洋安全、動作技能與面對挑戰的態度。" },
+  { id: 12, name: "中角報報",            x: 35.79, y: 67.97, url: "", description: "用觀察、採訪、整理與分享記錄校園，培養媒體素養與表達力。" },
+  { id: 13, name: "文史課程",            x: 39.60, y: 67.70, url: "", description: "從校園走向金山與北海岸，透過走讀認識地方故事、地景與文化。" },
+  { id: 14, name: "排球",                x: 35.30, y: 28.60, url: "", description: "從基本動作到團隊合作，培養運動技能、溝通與合作精神。" },
+  { id: 15, name: "視力保健(KCCV)",      x: 44.14, y: 67.56, url: "", description: "結合健康教育與 KCCV，建立正確用眼與自我照護習慣。" },
+  { id: 16, name: "平板攝影",            x: 45.80, y: 38.56, url: "", description: "運用平板觀察與記錄校園，培養影像構圖、敘事與數位表達能力。" },
+  { id: 17, name: "SH150",               x: 25.59, y: 38.22, url: "", description: "透過規律運動與校園活動，養成每日運動、健康生活的習慣。" },
+  { id: 18, name: "衝浪滑板",            x: 81.54, y: 81.83, url: "", description: "以陸上衝浪滑板練習平衡、重心轉移與衝浪動作概念。" },
+  { id: 19, name: "家庭教育閱讀(KCCV)",  x: 22.51, y: 68.30, url: "", description: "透過親子與家庭議題閱讀，連結理解、對話、合作與價值反思。" },
+  { id: 20, name: "沙灘越野(KCCV)",      x: 69.92, y: 73.15, url: "", description: "結合體能挑戰與 KCCV 精神，培養耐力、毅力與自我突破。" },
+  { id: 21, name: "種稻",                x: 56.20, y: 64.47, url: "", description: "從插秧、照護到收成，體驗稻米生長歷程與土地教育。" },
+  { id: 22, name: "手工肥皂",            x: 14.11, y: 49.39, url: "", description: "從生活科學與動手實作出發，理解材料、製作流程與環境友善概念。" },
+  { id: 23, name: "核電館與防災",        x: 32.47, y: 13.12, url: "", description: "結合能源與防災學習，培養安全意識、風險辨識與應變能力。" },
+  { id: 24, name: "蚯蚓",                x: 14.11, y: 86.74, url: "", description: "從蚯蚓與土壤生態觀察，理解分解者、生態循環與友善農作。" },
+  { id: 25, name: "雙語(小英檢)",        x: 17.48, y: 68.03, url: "", description: "在生活與校園情境中運用英語，並透過小英檢看見學習成果。" },
+  { id: 26, name: "能源管理看板",        x: 26.32, y: 47.58, url: "", description: "透過能源資訊的觀察與紀錄，理解校園用電並培養節能行動力。" },
+  { id: 27, name: "幼兒園中角水世界",    x: 26.46, y: 23.62, url: "", description: "從幼兒生活經驗出發，透過水的探索、遊戲與感官活動認識世界。" },
+  { id: 28, name: "SUP",                 x: 93.70, y: 49.93, url: "", description: "學習立式划槳的安全知能、平衡控制與水域探索能力。" },
+  { id: 29, name: "3D創客衝浪板",        x: 15.48, y: 24.83, url: "", description: "結合衝浪文化、設計思考與 3D 創客實作，打造具有中角特色的學習作品。" },
+  { id: 30, name: "班級經營",            x: 29.15, y: 64.74, url: "", description: "從班級日常建立規範、合作、責任與正向互動，形成支持學習的班級文化。" }
 ];
